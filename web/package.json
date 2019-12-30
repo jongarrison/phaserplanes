@@ -1,0 +1,19 @@
+{
+  "name": "phaserplanesweb",
+  "version": "1.0.0",
+  "description": "Phaser based web client for plane capture the flag game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jongarrison/phaserplanes.git"
+  },
+  "author": "Jon Garrison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jongarrison/phaserplanes/issues"
+  },
+  "homepage": "https://github.com/jongarrison/phaserplanes#readme"
+}
