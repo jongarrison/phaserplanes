@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jongarrison/phaserplanes/issues"
   },
-  "homepage": "https://github.com/jongarrison/phaserplanes#readme"
+  "homepage": "https://github.com/jongarrison/phaserplanes#readme",
+  "dependencies": {
+    "phaser": "^3.21.0"
+  }
 }
