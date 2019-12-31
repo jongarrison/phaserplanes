@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+#see: https://www.npmjs.com/package/http-server
+
+http-server ./public -c-1
+
+#-c-1 prevents caching
