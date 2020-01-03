@@ -1,57 +1,29 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <script src="lib/phaser/dist/phaser.js"></script>
-</head>
 <body>
 
-    <script>
-    var config = {
-        type: Phaser.AUTO,
-        width: 800,
-        height: 600,
-        physics: {
-            default: 'arcade',
-            arcade: {
-                gravity: { y: 200, x: 500 }
-            }
-        },
-        scene: {
-            preload: preload,
-            create: create
-        }
-    };
+<h2>The Main Plane Game Versions</h2>
 
-    let game = new Phaser.Game(config);
+<ul>
+  <li>
+    <a href="planes/index.html">Planes</a>
+  </li>
+</ul>
 
-    function preload () {
-        this.load.setBaseURL('/');
+<h2>Others</h2>
 
-        this.load.image('sky', 'art/sky.png');
-        this.load.image('logo', 'art/plane_red.png');
-        this.load.image('red', 'art/plane_red.png');
-    }
+<ul>
+  <li>
+    <a href="camera_scroll/index.html">Camera Scroll</a>
+  </li>
+  <li>
+    <a href="particle_demo/index.html">Particle Demo</a>
+  </li>
+  <li>
+    <a href="phaser_star_demo/index.html">Falling Stars Game Demo</a>
+  </li>
+</ul>
 
-    function create () {
-        this.add.image(-200, 300, 'sky');
 
-        let particles = this.add.particles('red');
-
-        let emitter = particles.createEmitter({
-            speed: 100,
-            scale: { start: 1, end: 0 },
-            blendMode: 'ADD'
-        });
-
-        let logo = this.physics.add.image(100, 100, 'logo');
-
-        logo.setVelocity(100, 200);
-        logo.setBounce(1, 1.00);
-        logo.setCollideWorldBounds(true);
-
-        emitter.startFollow(logo);
-    }
-    </script>
 
 </body>
 </html>

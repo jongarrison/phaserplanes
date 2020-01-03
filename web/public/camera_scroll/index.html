@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="../lib/phaser/dist/phaser.js"></script>
+</head>
+<body>
+
+<script>
+  let gameParams = {
+    gameX: 2160,
+    gameY: 656,
+    viewX: 800,
+    viewY: 600,
+    playerStartX: 400,
+    playerStartY: 300,
+  };
+  
+  let config = {
+    type: Phaser.AUTO,
+    width: gameParams.gameX,
+    height: gameParams.gameY,
+    physics: {
+      default: 'arcade',
+      arcade: {
+        gravity: { y: 0, x: 0 }
+      }
+    },
+    scene: {
+      preload: preload,
+      create: create,
+      update: update,
+    }
+  };
+  
+  let game = new Phaser.Game(config);
+  let plane;
+  
+  function preload () {
+    this.load.setBaseURL('/');
+    
+    this.load.image('sky', 'art/sky.png');
+    this.load.image('plane', 'art/plane_red.png');
+  }
+  
+  function create () {
+    
+    this.add.image(gameParams.gameX/2, gameParams.gameY/2, 'sky');
+    
+    let particles = this.add.particles('plane');
+    
+    let emitter = particles.createEmitter({
+      speed: 100,
+      scale: { start: 1, end: 0 },
+      blendMode: 'ADD'
+    });
+    
+    plane = this.physics.add.image(100, 100, 'plane');
+    
+    plane.setVelocity(100, 200);
+    plane.setBounce(1, 1.00);
+    plane.setCollideWorldBounds(true);
+    
+    emitter.startFollow(plane);
+  
+    this.cameras.main.setViewport(0, 0, gameParams.viewX, gameParams.viewY);
+  
+  }
+  
+  function update() {
+    const planeLoc = plane.getCenter();
+    this.cameras.main.setPosition(planeLoc.x - 400, planeLoc.y - 30 );
+  
+  }
+</script>
+
+</body>
+</html>

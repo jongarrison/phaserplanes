@@ -1,3 +1,4 @@
 
 .idea
-node_modules
+web/node_modules/*
+!web/node_modules/phaser/dist/*
